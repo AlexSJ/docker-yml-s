@@ -1,0 +1,12 @@
+# docker-compose -f juchem-rails-5.2.0.yml [-d] up
+version: '3'
+services:
+  web:
+    image: 'juchem/rails:5.2.0'
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./site:/home/app
+    tty: true
+    command: bash -c "cd /home/app && bin/rails server"
+    container_name: juchem_rails
